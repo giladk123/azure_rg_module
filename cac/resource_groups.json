@@ -1,0 +1,41 @@
+{
+    "subscription_info": {
+        "subscription_cmdb": "sb"
+    },
+    "naming_convention": {
+        "region": "we",
+        "tenant_name": "d",
+        "environment": "prd"
+        
+    },
+    "resource_groups": {
+    "Arutzim_Blob": {
+        "name": "arutzim",
+        "location": "West Europe",
+        "cmdb_inf": "azus",
+        "cmdb_prj": "opdx",
+        "tags": {
+            "Environment": "Dev"
+        }
+        
+    },
+    "Arutzim_Web_App": {
+        "name": "marketing",
+        "location": "West Europe",
+        "cmdb_inf": "azus",
+        "cmdb_prj": "jhye",
+        "tags": {
+            "Environment": "dev"
+        }       
+     },
+     "CRM": {
+        "name": "crmretail",
+        "location": "West Europe",
+        "cmdb_inf": "azus",
+        "cmdb_prj": "oiux",
+        "tags": {
+            "Environment": "dev"
+        }       
+     }
+  }
+}
