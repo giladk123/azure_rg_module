@@ -1,11 +1,11 @@
 {
     "subscription_info": {
-        "subscription_cmdb": "sb"
+        "subscription_cmdb": "SandboxCCOE"
     },
     "naming_convention": {
         "region": "we",
-        "tenant_name": "d",
-        "environment": "prd"
+        "tenant_name": "y",
+        "environment": "dev"
         
     },
     "resource_groups": {
