@@ -8,4 +8,5 @@ output "subscription_info" {
 
 output "all_resource_groups" {
   value = module.resource_group
+  description = "All resource groups created by the resource_group module"
 }

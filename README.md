@@ -31,5 +31,5 @@ No inputs.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_all_resource_groups"></a> [all\_resource\_groups](#output\_all\_resource\_groups) | n/a |
+| <a name="output_all_resource_groups"></a> [all\_resource\_groups](#output\_all\_resource\_groups) | All resource groups created by the resource\_group module |
 | <a name="output_subscription_info"></a> [subscription\_info](#output\_subscription\_info) | The ID and name of the subscription |
