@@ -1,11 +1,3 @@
-# output "subscription_id" {
-#   value = local.subscription_id
-# }
-
-# output "subscription_name" {
-#   value = local.subscription_name
-# }
-
 output "subscription_info" {
   value = {
     id   = local.subscription_id,
