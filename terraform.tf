@@ -16,10 +16,3 @@ provider "azurerm" {
     }
   }
 }
-
-// Define an alias provider for subscription
-provider "azurerm" {
-  features {}
-  alias           = "subscription"
-  subscription_id = local.subscription_id
-}

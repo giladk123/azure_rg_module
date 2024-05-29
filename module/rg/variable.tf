@@ -1,14 +1,17 @@
-variable "rg_name" {
-  description = "The name of the resource group"
-  type        = string
+variable "resource_groups" {
+  description = "Map of resource group details"
+  type        = map(object({
+    rg_name     = string
+    cmdb_prj    = string
+    tnnt_env    = string
+    region      = string
+    rg_location = string
+    rg_tags     = map(string)
+  }))
+  default = {}
 }
 
-variable "rg_location" {
-  description = "The location/region where the resource group will be created"
+variable "subscription_id" {
+  description = "The ID of the subscription where you want to create resources"
   type        = string
-}
-
-variable "rg_tags" {
-  description = "A mapping of tags to assign to the resource group"
-  type        = map(string)
 }

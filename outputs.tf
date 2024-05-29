@@ -6,12 +6,6 @@ output "subscription_info" {
   description = "The ID and name of the subscription"
 }
 
-output "Resource_Groups_Names" {
-  value       = { for k, v in module.resource_group : k => v.rg_name }
-  description = "The names of the resource groups"
+output "all_resource_groups" {
+  value = module.resource_group
 }
-
-# output "Resource_Groups_locations" {
-#   value       = { for k, v in module.resource_group : k => v.rg_location }
-#   description = "The locations of the resource groups"
-# }

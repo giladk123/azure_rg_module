@@ -31,6 +31,5 @@ No inputs.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_Resource_Groups_Names"></a> [Resource\_Groups\_Names](#output\_Resource\_Groups\_Names) | The names of the resource groups |
-| <a name="output_Resource_Groups_locations"></a> [Resource\_Groups\_locations](#output\_Resource\_Groups\_locations) | The locations of the resource groups |
 | <a name="output_subscription_info"></a> [subscription\_info](#output\_subscription\_info) | The ID and name of the subscription |
+| <a name="output_test"></a> [test](#output\_test) | n/a |
