@@ -1,42 +1,37 @@
 {
     "subscription_info": {
-        "subscription_cmdb": "opdx",
-        "subscription_freetext": "testmark"
+        "name": "we-ydev-azus-opdx-testmark-sb"
     },
     "naming_convention": {
         "region": "we",
         "tenant_name": "y",
-        "environment": "dev"
-        
+        "environment": "dev",
+        "cmdb_inf": "azus"
     },
     "resource_groups": {
-    "Arutzim_Blob": {
-        "name": "arutzim",
-        "location": "West Europe",
-        "cmdb_inf": "azus",
-        "cmdb_prj": "opdx",
-        "tags": {
-            "Environment": "Dev"
+        "arutzim_blob": {
+            "name": "arutzim",
+            "location": "West Europe",
+            "cmdb_prj": "opdx",
+            "tags": {
+                "environment": "dev"
+            }
+        },
+        "arutzim_web_app": {
+            "name": "marketing",
+            "location": "West Europe",
+            "cmdb_prj": "opdx",
+            "tags": {
+                "environment": "dev"
+            }
+        },
+        "crm": {
+            "name": "crmretail",
+            "location": "West Europe",
+            "cmdb_prj": "opdx",
+            "tags": {
+                "environment": "dev"
+            }
         }
-        
-    },
-    "Arutzim_Web_App": {
-        "name": "marketing",
-        "location": "West Europe",
-        "cmdb_inf": "azus",
-        "cmdb_prj": "opdx",
-        "tags": {
-            "Environment": "dev"
-        }       
-     },
-     "CRM": {
-        "name": "crmretail",
-        "location": "West Europe",
-        "cmdb_inf": "azus",
-        "cmdb_prj": "opdx",
-        "tags": {
-            "Environment": "dev"
-        }       
-     }
-  }
+    }
 }
