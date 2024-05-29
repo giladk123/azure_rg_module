@@ -1,6 +1,7 @@
 {
     "subscription_info": {
-        "subscription_cmdb": "SandboxCCOE"
+        "subscription_cmdb": "opdx",
+        "subscription_freetext": "testmark"
     },
     "naming_convention": {
         "region": "we",
@@ -23,7 +24,7 @@
         "name": "marketing",
         "location": "West Europe",
         "cmdb_inf": "azus",
-        "cmdb_prj": "jhye",
+        "cmdb_prj": "opdx",
         "tags": {
             "Environment": "dev"
         }       
@@ -32,7 +33,7 @@
         "name": "crmretail",
         "location": "West Europe",
         "cmdb_inf": "azus",
-        "cmdb_prj": "oiux",
+        "cmdb_prj": "opdx",
         "tags": {
             "Environment": "dev"
         }       
