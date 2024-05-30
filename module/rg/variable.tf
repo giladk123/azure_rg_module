@@ -1,6 +1,6 @@
 variable "resource_groups" {
   description = "Map of resource group details"
-  type        = map(object({
+  type = map(object({
     rg_name     = string
     cmdb_prj    = string
     tnnt_env    = string

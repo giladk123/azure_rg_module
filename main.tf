@@ -1,8 +1,10 @@
+locals {
+  data = jsondecode(file("./cac/rg.json"))
+}
 module "resource_group" {
 
   source = "./module/rg"
 
-  resource_groups = local.resource_groups
-  subscription_id = local.subscription_id
-
+  resource_groups = local.data.resource_groups
+  subscription_id = local.data.subscription.id
 }

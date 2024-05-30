@@ -1,9 +1,5 @@
 output "rg_name" {
-  value = values({ for k, v in azurerm_resource_group.rg : k => v.name })
-}
-
-output "rg_location" {
-  value = values({ for k, v in azurerm_resource_group.rg : k => v.location })
+  value = { for rg in azurerm_resource_group.rg : rg.name => rg.name }
 }
 
 output "rg_tags" {
@@ -16,4 +12,9 @@ output "rg_id" {
 
 output "all" {
   value = azurerm_resource_group.rg
+}
+
+output "rg_location" {
+  value       = { for k, rg in azurerm_resource_group.rg : k => rg.location }
+  description = "The location of each resource group"
 }
