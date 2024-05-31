@@ -1,0 +1,23 @@
+{
+    "vnet": {
+        "vnet_name": "we-ydev-azus-opdx-crm-vnet",
+        "resource_group_name": "we-ydev-azus-opdx-marketing-rg",
+        "location": "westeurope",
+        "address_space": [
+            "10.60.0.0/24"
+        ],
+        "tags": {
+            "environment": "dev"
+        },
+        "subnets": [
+            {
+                "name": "crm",
+                "address_prefix": "10.60.0.0/26"
+            },
+            {
+                "name": "blob",
+                "address_prefix": "10.60.0.64/26"
+            }
+        ]
+    }
+}

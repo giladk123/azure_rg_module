@@ -1,11 +1,27 @@
-output "subscription_info" {
-  value       = local.data.subscription.id
-  description = "The ID and name of the subscription"
+# output "all_resource_groups" {
+#   value       = module.resource_group
+#   description = "All resource groups created by the resource_group module"
+# }
+
+output "resource_group_name" {
+  value = module.resource_group.rg_name
 }
 
-output "all_resource_groups" {
-  value       = module.resource_group
-  description = "All resource groups created by the resource_group module"
+
+output "vnet_id" {
+  value = module.vnet.vnet.vnet_id
+}
+
+output "vnet_name" {
+  value = module.vnet.vnet.vnet_name
+}
+
+output "subnet_ids" {
+  value = module.vnet.vnet.subnet_ids
+}
+
+output "specific_subnet_id" {
+  value = lookup(module.vnet.vnet.subnet_ids, "blob", "")
 }
 
 # Example of using the lookup function to get a specific resource group name and location
