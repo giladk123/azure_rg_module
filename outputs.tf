@@ -19,6 +19,13 @@ output "specific_subnet_id" {
   value = lookup(module.vnet.vnet.subnet_ids, "blob", "")
 }
 
+output "law_name" {
+  value = module.log-analytics-workspace.law_name
+}
+
+output "law_id" {
+  value = module.log-analytics-workspace.law_id
+}
 # Example of using the lookup function to get a specific resource group name and location
 # output "specific_resource_group_name" {
 #   description = "The name of a specific resource group"

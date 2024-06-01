@@ -1,0 +1,12 @@
+{
+    "law_name": "we-ydev-azus-opdx-worksp01-log",
+    "location": "rg1",
+    "resource_group_name": "we-ydev-azus-opdx-marketing-rg",
+    "sku": "PerGB2018",
+    "retention_in_days": 30,
+    "internet_ingestion_enabled": false,
+    "internet_query_enabled": true,
+    "tags": {
+        "environment": "dev"
+    }
+}
