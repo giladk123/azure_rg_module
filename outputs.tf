@@ -3,24 +3,42 @@ output "all_resource_groups" {
   description = "All resource groups created by the resource_group module"
 }
 
-output "vnet_id" {
-  value       = module.vnet.vnet.vnet_id
-  description = "The ID of the Virtual Network created by the vnet module."
+output "vnet_ids" {
+  value       = [for vnet in values(module.vnet) : vnet.vnet_id]
+  description = "The IDs of the Virtual Networks created by the vnet module."
 }
 
-output "vnet_name" {
-  value       = module.vnet.vnet.vnet_name
-  description = "The name of the Virtual Network created by the vnet module."
+output "vnet_names" {
+  value       = [for vnet in values(module.vnet) : vnet.vnet_name]
+  description = "The names of the Virtual Networks created by the vnet module."
 }
 
 output "subnet_ids" {
-  value       = module.vnet.vnet.subnet_ids
-  description = "The IDs of the subnets within the Virtual Network created by the vnet module."
+  value       = [for vnet in values(module.vnet) : vnet.subnet_ids]
+  description = "The IDs of the subnets within the Virtual Networks created by the vnet module."
+}
+output "specific_subnet_id" {
+  value = lookup(module.vnet["vnet1"].subnet_ids, "blob", "")
 }
 
-output "specific_subnet_id" {
-  value = lookup(module.vnet.vnet.subnet_ids, "blob", "")
-}
+# output "vnet_id" {
+#   value       = module.vnet.vnet.vnet_id
+#   description = "The ID of the Virtual Network created by the vnet module."
+# }
+
+# output "vnet_name" {
+#   value       = module.vnet.vnet.vnet_name
+#   description = "The name of the Virtual Network created by the vnet module."
+# }
+
+# output "subnet_ids" {
+#   value       = module.vnet.vnet.subnet_ids
+#   description = "The IDs of the subnets within the Virtual Network created by the vnet module."
+# }
+
+# output "specific_subnet_id" {
+#   value = lookup(module.vnet.vnet.subnet_ids, "blob", "")
+# }
 
 output "law_ids" {
   value       = module.log_analytics_workspace.law_ids

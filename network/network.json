@@ -1,23 +1,24 @@
 {
-    "vnet": {
+    "vnet1": {
         "vnet_name": "we-ydev-azus-opdx-crm-vnet",
         "resource_group_name": "we-ydev-azus-opdx-marketing-rg",
         "location": "westeurope",
-        "address_space": [
-            "10.60.0.0/24"
-        ],
-        "tags": {
-            "environment": "dev"
-        },
+        "address_space": ["10.62.252.0/24"],
+        "tags": {"environment": "dev"},
         "subnets": [
-            {
-                "name": "crm",
-                "address_prefix": "10.60.0.0/26"
-            },
-            {
-                "name": "blob",
-                "address_prefix": "10.60.0.64/26"
-            }
+            {"name": "blob", "address_prefix": "10.62.252.0/28"},
+            {"name": "arutzim", "address_prefix": "10.62.252.16/28"}
+        ]
+    },
+    "vnet2": {
+        "vnet_name": "we-ydev-azus-opdx-arutzim-vnet",
+        "resource_group_name": "we-ydev-azus-opdx-arutzim-rg",
+        "location": "westeurope",
+        "address_space": ["10.62.253.0/24"],
+        "tags": {"environment": "dev"},
+        "subnets": [
+            {"name": "subnet1", "address_prefix": "10.62.253.0/28"},
+            {"name": "subnet2", "address_prefix": "10.62.253.16/28"}
         ]
     }
 }
