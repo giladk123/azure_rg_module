@@ -1,14 +1,14 @@
-output "law_name" {
-  value = azurerm_log_analytics_workspace.new_law.name
-  description = "value of the Log Analytics Workspace name"
+output "law_names" {
+  value = { for k, v in azurerm_log_analytics_workspace.new_law : k => v.name }
+  description = "Map of the Log Analytics Workspace names"
 }
 
-output "law_id" {
-  value = azurerm_log_analytics_workspace.new_law.id
-  description = "value of the Log Analytics Workspace id"
+output "law_ids" {
+  value = { for k, v in azurerm_log_analytics_workspace.new_law : k => v.id }
+  description = "Map of the Log Analytics Workspace ids"
 }
 
-output "law_location" {
-  value = azurerm_log_analytics_workspace.new_law.location
-  description = "value of the Log Analytics Workspace location"
+output "law_locations" {
+  value = { for k, v in azurerm_log_analytics_workspace.new_law : k => v.location }
+  description = "Map of the Log Analytics Workspace locations"
 }

@@ -1,11 +1,13 @@
 resource "azurerm_log_analytics_workspace" "new_law" {
-  name                       = var.law_name
-  location                   = var.rg_location
-  resource_group_name        = var.rg_name
-  sku                        = var.sku
-  retention_in_days          = var.retention_in_days
-  internet_ingestion_enabled = var.internet_ingestion_enabled
-  internet_query_enabled     = var.internet_query_enabled
+  for_each = var.workspaces
 
-  tags = var.tags
+  name                       = each.value.law_name
+  location                   = each.value.rg_location
+  resource_group_name        = each.value.rg_name
+  sku                        = each.value.sku
+  retention_in_days          = each.value.retention_in_days
+  internet_ingestion_enabled = each.value.internet_ingestion_enabled
+  internet_query_enabled     = each.value.internet_query_enabled
+
+  tags = each.value.tags
 }
