@@ -2,6 +2,7 @@ locals {
   data                    = jsondecode(file("./ccoe/rg.json"))
   vnet_settings           = jsondecode(file("./network/network.json"))
   log_analytics_workspace = jsondecode(file("./ccoe/log_analytics_workspace.json"))
+  management_groups       = jsondecode(file("./ccoe/mgmt.json"))
 }
 
 module "resource_group" {
@@ -26,6 +27,11 @@ module "vnet" {
 
   depends_on = [module.resource_group]
 
+}
+
+module "management_groups" {
+  source = "./module/mgmt"
+  management_groups = local.management_groups
 }
 
 module "log_analytics_workspace" {

@@ -1,0 +1,48 @@
+[
+    {
+        "root": {
+            "name": "root_management_group1"
+        },
+        "children": [
+            {
+                "name": "child_management_group1",
+                "grandchildren": [
+                    {
+                        "name": "grandchild_management_group1"
+                    }
+                ]
+            },
+            {
+                "name": "child_management_group2",
+                "grandchildren": [
+                    {
+                        "name": "grandchild_management_group2"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "root": {
+            "name": "root_management_group2"
+        },
+        "children": [
+            {
+                "name": "child_management_group3",
+                "grandchildren": [
+                    {
+                        "name": "grandchild_management_group3"
+                    }
+                ]
+            },
+            {
+                "name": "child_management_group4",
+                "grandchildren": [
+                    {
+                        "name": "grandchild_management_group4"
+                    }
+                ]
+            }
+        ]
+    }
+]

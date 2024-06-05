@@ -36,6 +36,35 @@ output "law_locations" {
   description = "Map of the Log Analytics Workspace locations"
 }
 
+output "root_management_group_ids" {
+  value       = module.management_groups.root_management_group_ids
+  description = "The IDs of the root management groups."
+}
+
+output "child_management_group_ids" {
+  value       = module.management_groups.child_management_group_ids
+  description = "The IDs of the child management groups."
+}
+
+output "grandchild_management_group_ids" {
+  value       = module.management_groups.grandchild_management_group_ids
+  description = "The IDs of the grandchild management groups."
+}
+
+output "aa_root_management_group_names" {
+  value       = module.management_groups.root_management_group_names
+  description = "The names of the root management groups."
+}
+
+output "ab_child_management_group_names" {
+  value       = module.management_groups.child_management_group_names
+  description = "The names of the child management groups."
+}
+
+output "ac_grandchild_management_group_names" {
+  value       = module.management_groups.grandchild_management_group_names
+  description = "The names of the grandchild management groups."
+}
 # Example of using the lookup function to get a specific resource group name and location
 # output "specific_resource_group_name" {
 #   description = "The name of a specific resource group"
