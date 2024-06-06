@@ -3,6 +3,7 @@ locals {
   vnet_settings           = jsondecode(file("./network/network.json"))
   log_analytics_workspace = jsondecode(file("./ccoe/log_analytics_workspace.json"))
   management_groups       = jsondecode(file("./ccoe/mgmt.json"))
+  managed-identity        = jsondecode(file("./ccoe/managed-identity.json"))
 }
 
 module "resource_group" {
@@ -29,16 +30,45 @@ module "vnet" {
 
 }
 
-module "management_groups" {
-  source = "./module/mgmt"
-  management_groups = local.management_groups
-}
+# module "management_groups" {
+#   source = "./module/mgmt"
+#   management_groups = local.management_groups
+# }
 
 module "log_analytics_workspace" {
   source     = "./module/log-analytics-workspace"
   workspaces = local.log_analytics_workspace
 
   depends_on = [module.resource_group]
+}
+
+module "managed_identities" {
+  source = "./module/managed-identity"
+
+  resource_group_name = local.managed-identity.resource_group_name
+  location            = local.managed-identity.location
+  user_identities     = local.managed-identity.user_identities
+  #system_identities   = local.managed-identity.system_identities
+}
+
+module "role_assignment" {
+  source = "./module/role-assignment"  # adjust this path to match your project structure
+
+  azure_rbac = [
+    {
+      key           = "example-key-1"
+      role          = "Contributor"
+      scope         = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup"
+      principal_id  = "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      key           = "example-key-2"
+      role          = "Reader"
+      scope         = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup"
+      principal_id  = "00000000-0000-0000-0000-000000000000"
+    }
+    # add more role assignments as needed
+  ]
 }
 
 # module "log-analytics-workspace" {
