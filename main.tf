@@ -6,6 +6,8 @@ locals {
   managed-identity        = jsondecode(file("./ccoe/managed-identity.json"))
 }
 
+data "azurerm_subscription" "current" {}
+
 module "resource_group" {
 
   source = "./module/rg"
@@ -35,12 +37,12 @@ module "vnet" {
 #   management_groups = local.management_groups
 # }
 
-module "log_analytics_workspace" {
-  source     = "./module/log-analytics-workspace"
-  workspaces = local.log_analytics_workspace
+# module "log_analytics_workspace" {
+#   source     = "./module/log-analytics-workspace"
+#   workspaces = local.log_analytics_workspace
 
-  depends_on = [module.resource_group]
-}
+#   depends_on = [module.resource_group]
+# }
 
 module "managed_identities" {
   source = "./module/managed-identity"
@@ -51,25 +53,41 @@ module "managed_identities" {
   #system_identities   = local.managed-identity.system_identities
 }
 
-module "role_assignment" {
-  source = "./module/role-assignment"  # adjust this path to match your project structure
+module "service-principal" {
+  source = "./module/service-principal"
 
-  azure_rbac = [
+  service_principal_name     = "simple-appaccess"
+  password_rotation_in_years = 1
+  enable_service_principal_certificate = false
+
+  # Adding roles and scope to service principal
+  assignments = [
     {
-      key           = "example-key-1"
-      role          = "Contributor"
-      scope         = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup"
-      principal_id  = "00000000-0000-0000-0000-000000000000"
+      scope                = data.azurerm_subscription.current.id
+      role_definition_name = "Contributor"
     },
-    {
-      key           = "example-key-2"
-      role          = "Reader"
-      scope         = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup"
-      principal_id  = "00000000-0000-0000-0000-000000000000"
-    }
-    # add more role assignments as needed
   ]
 }
+
+# module "role_assignment" {
+#   source = "./module/role-assignment"  # adjust this path to match your project structure
+
+#   azure_rbac = [
+#     {
+#       key           = "example-key-1"
+#       role          = "Contributor"
+#       scope         = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup"
+#       principal_id  = "00000000-0000-0000-0000-000000000000"
+#     },
+#     {
+#       key           = "example-key-2"
+#       role          = "Reader"
+#       scope         = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup"
+#       principal_id  = "00000000-0000-0000-0000-000000000000"
+#     }
+#     # add more role assignments as needed
+#   ]
+# }
 
 # module "log-analytics-workspace" {
 #   source = "./module/log-analytics-workspace"

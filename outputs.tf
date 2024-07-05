@@ -21,20 +21,20 @@ output "specific_subnet_id" {
   value = lookup(module.vnet["vnet1"].subnet_ids, "blob", "")
 }
 
-output "law_ids" {
-  value       = module.log_analytics_workspace.law_ids
-  description = "Map of the Log Analytics Workspace ids"
-}
+# output "law_ids" {
+#   value       = module.log_analytics_workspace.law_ids
+#   description = "Map of the Log Analytics Workspace ids"
+# }
 
-output "law_names" {
-  value       = module.log_analytics_workspace.law_names
-  description = "Map of the Log Analytics Workspace names"
-}
+# output "law_names" {
+#   value       = module.log_analytics_workspace.law_names
+#   description = "Map of the Log Analytics Workspace names"
+# }
 
-output "law_locations" {
-  value       = module.log_analytics_workspace.law_locations
-  description = "Map of the Log Analytics Workspace locations"
-}
+# output "law_locations" {
+#   value       = module.log_analytics_workspace.law_locations
+#   description = "Map of the Log Analytics Workspace locations"
+# }
 
 # output "root_management_group_ids" {
 #   value       = module.management_groups.root_management_group_ids
